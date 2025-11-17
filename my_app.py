@@ -3,6 +3,7 @@
 import argparse
 import platform
 import sys
+from webapp import app
 
 
 def main():
@@ -20,6 +21,9 @@ def main():
                         help="show system information".capitalize()
                         )
 
+    parser.add_argument('-w', "--webapp", action="store_true",
+                        help="Run Web Application")
+
     # Parse command-line arguments
     args = parser.parse_args()
 
@@ -28,8 +32,8 @@ def main():
         print("Operating System: %s(%s)-%s(%s)" %
               (platform.system(), sys.getdefaultencoding().upper(), platform.version(), platform.machine()))
         print("Python Version:", sys.version)
-
-    # If no switches are provided, show help message
+    elif args.webapp:
+        app.run()
     else:
         parser.print_help()
 

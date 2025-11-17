@@ -1,0 +1,8 @@
+- name: backup-111
+  ip: 10.126.2.111
+  user: root
+  password: Asdf@7890
+  tag: Backup
+  port: 22
+  env: prod
+  protocol: ssh
